@@ -1141,14 +1141,14 @@ describe('Select', () => {
 				'to have text', 'Add test to values?');
 		});
 
-		it('does not display the option label when an existing value is entered', () => {
+		it('does not display add option when an existing value is entered', () => {
 
 			typeSearchText('zzzzz');
 
 			expect(ReactDOM.findDOMNode(instance).querySelectorAll('.Select-menu .Select-option'),
 				'to have length', 1);
-			expect(ReactDOM.findDOMNode(instance), 'queried for first', '.Select-menu .Select-option',
-				'to have text', 'Add zzzzz to values?');
+			expect(ReactDOM.findDOMNode(instance).querySelectorAll('.Select-menu .Select-option')[0],
+				'to have text', 'test value');
 		});
 
 		it('renders the existing option and an add option when an existing display label is entered', () => {
