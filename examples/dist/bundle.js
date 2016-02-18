@@ -779,6 +779,11 @@ var Select = React.createClass({
 		}
 
 		var optionsResponseHandler = function optionsResponseHandler(err, data) {
+			// Don't run this code when the component is no longer mounted.
+			if (!_this9.isMounted()) {
+				return;
+			}
+
 			if (err) throw err;
 			if (_this9.props.cacheAsyncResults) {
 				_this9._optionsCache[input] = data;
