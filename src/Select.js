@@ -37,6 +37,7 @@ var Select = React.createClass({
 		labelKey: React.PropTypes.string,          // path of the label value in option objects
 		matchPos: React.PropTypes.string,          // (any|start) match the start or entire string when filtering
 		matchProp: React.PropTypes.string,         // (any|label|value) which option property to filter on
+		maxLength: React.PropTypes.number,         // if set, maxlength value set on select input
 		multi: React.PropTypes.bool,               // multi-value input
 		name: React.PropTypes.string,              // field name, for hidden <input /> tag
 		newOptionCreator: React.PropTypes.func,    // factory to create new options when allowCreate set
@@ -80,6 +81,7 @@ var Select = React.createClass({
 			labelKey: 'label',
 			matchPos: 'any',
 			matchProp: 'any',
+			maxlength: undefined,
 			name: undefined,
 			newOptionCreator: undefined,
 			noResultsText: 'No results found',
@@ -885,7 +887,8 @@ var Select = React.createClass({
 			className: 'Select-input ' + (this.props.inputProps.className || ''),
 			tabIndex: this.props.tabIndex || 0,
 			onFocus: this.handleInputFocus,
-			onBlur: this.handleInputBlur
+			onBlur: this.handleInputBlur,
+			maxLength: this.props.maxLength
 		};
 		for (var key in this.props.inputProps) {
 			if (this.props.inputProps.hasOwnProperty(key) && key !== 'className') {

@@ -2476,6 +2476,23 @@ describe('Select', () => {
 			});
 		});
 
+		describe('maxLength', () => {
+
+			beforeEach(() => {
+
+				instance = createControl({
+					value: 'test',
+					maxLength: 10,
+					options: defaultOptions
+				});
+			});
+
+			it('sets maxlength on input', () => {
+
+				expect(searchInputNode.maxLength, 'to be', 10);
+			});
+		});
+
 		describe('noResultsText', () => {
 
 			beforeEach(() => {
