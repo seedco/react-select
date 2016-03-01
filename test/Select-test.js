@@ -2489,7 +2489,6 @@ describe('Select', () => {
 
 			it('sets maxlength on input', () => {
 
-				console.log(searchInputNode);
 				expect(searchInputNode.maxLength, 'to be', 10);
 			});
 		});
